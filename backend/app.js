@@ -7,7 +7,7 @@ const bcrypt = require("bcryptjs");
 const fileupload=require('express-fileupload');
 
 //mongo path define
-dbApi='mongodb+srv://myproject:my123@myprojrct.bcn33h3.mongodb.net/?retryWrites=true&w=majority';
+dbApi="place your mongo db link here";
 
 mongoose.Promise=global.Promise;
 

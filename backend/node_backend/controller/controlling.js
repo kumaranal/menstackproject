@@ -15,11 +15,11 @@ const cloudinary=require('cloudinary').v2;
 const JWTCODE="mycode";
 
 
-
+//place your cloudinary data here
 cloudinary.config({ 
-    cloud_name: 'danixwqu4', 
-    api_key: '256547845288793', 
-    api_secret: 'tWfdugdbWxvCb5HlIX1xnBgqzlg' 
+    cloud_name: '', 
+    api_key: '', 
+    api_secret: '' 
   });
 
  const getpost= async(req,res)=>{
