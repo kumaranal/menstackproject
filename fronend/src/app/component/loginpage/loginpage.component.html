@@ -1,0 +1,34 @@
+
+<div class="outer">
+<mat-card class="example-card">
+    <div class="container">
+        <div class="row ">
+        <div class="col-md-6">
+            <form [formGroup]="loginForm">
+                <div>
+                    LOGIN
+                </div>
+                <br>
+                <div class="form-group">
+                    <label >Email</label>
+                    <input type="text" class="form-control" formControlName="email" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label >Password</label>
+                    <input type="text" class="form-control" formControlName="password" required>
+                </div>
+                
+            </form>
+            <br>
+            <div>
+                <button class="btn bg-light" type="button" (click)="onSubmit()">SUBMIT</button>
+            </div>
+            <br>
+            <button class="btn bg-light" type="button" (click)="register()" >REGISTER</button>
+
+        </div>
+    </div>
+    </div>
+</mat-card>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <h2 class="h2">
+            MY Profile
+        </h2>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">email</th>
+                    <th scope="col">name</th>
+                    <th scope="col">phone_no</th>
+                    <th scope="col">profile_image</th>
+                    <th class="text-center" scope="col">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td >{{books.email}}</td>
+                    <td >{{books.name}}</td>
+                    <td >{{books.phone_no}}</td>
+                    <td><img [src]="books.profile_image" height='100' width='100' /></td>
+                    <td class="text-center">
+                        <button class="btn btn-primary"   (click)="edit()">edit</button>
+                        <button class="btn btn-primary"   (click)="delete()">delete</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

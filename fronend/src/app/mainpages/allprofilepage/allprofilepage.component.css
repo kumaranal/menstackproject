@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+  }
+
+.tablesize{
+    height:  30px;
+    padding-top: 20 px;
+    padding-bottom: 20 px;
+}
