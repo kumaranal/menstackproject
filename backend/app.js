@@ -5,13 +5,16 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const bcrypt = require("bcryptjs");
 const fileupload=require('express-fileupload');
+const dotenv = require('dotenv')
+require('dotenv').config({path:'.env'});
+
 
 //mongo path define
-dbApi="place your mongo db link here";
+// dbApi='mongodb+srv://myproject:my123@myprojrct.bcn33h3.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.Promise=global.Promise;
 
-    mongoose.connect(dbApi,{ useNewUrlParser: true, useUnifiedTopology: true },(err)=>{
+    mongoose.connect(process.env.dbApi,{ useNewUrlParser: true, useUnifiedTopology: true },(err)=>{
         if(err){
             console.log(err);
         }

@@ -13,13 +13,14 @@ const fileupload=require('express-fileupload');
 const user = require("../model/user");
 const cloudinary=require('cloudinary').v2;
 const JWTCODE="mycode";
+const dotenv = require('dotenv')
+require('dotenv').config({path:'.env'});
 
 
-//place your cloudinary data here
 cloudinary.config({ 
-    cloud_name: '', 
-    api_key: '', 
-    api_secret: '' 
+    cloud_name: process.env.cloudName, 
+    api_key: process.env.cloudKey, 
+    api_secret: process.env.cloudSecret
   });
 
  const getpost= async(req,res)=>{
