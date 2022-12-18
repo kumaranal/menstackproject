@@ -10,7 +10,6 @@ require('dotenv').config({path:'.env'});
 
 
 //mongo path define
-// dbApi='mongodb+srv://myproject:my123@myprojrct.bcn33h3.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.Promise=global.Promise;
 
