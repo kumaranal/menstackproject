@@ -23,7 +23,10 @@ export interface PeriodicElement {
 export class MyprofilepageComponent implements OnInit {
   books:any=[];
   authtoken:any;
-
+  displayedColumns: string[] = ['name'];
+  dataSource=new MatTableDataSource<PeriodicElement>;
+  data:any=[]
+  @ViewChild('Paginator')paginator:any=MatPaginator;
   constructor(private formBuilder:FormBuilder,private router:Router,private ngZone:NgZone,private crudApi:LoginserviceService) { 
     this.authtoken={
       authtoken: localStorage.getItem('token')
@@ -33,8 +36,15 @@ export class MyprofilepageComponent implements OnInit {
   ngOnInit(): void {
     this.crudApi.myprofileapi(this.authtoken).subscribe(res=>{
       console.log(res);
+      if(res.error){
+        this.ngZone.run(()=>{
+          this.router.navigateByUrl(`login`)
+        })
+      }
       if(res){
         this.books=res;
+        this.dataSource=new MatTableDataSource(this.data)
+
 
       }else{
         this.ngZone.run(()=>{

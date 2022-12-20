@@ -64,7 +64,7 @@ const findfn=(req,res)=>{
 
 const updatefn=(req,res,next)=>{
     console.log("update");
-console.log("req",req.body);
+// console.log("req",req.body);
 let result;
   const file=req.files.profile_image;
         cloudinary.uploader.upload(file.tempFilePath,(err,data)=>{
@@ -96,6 +96,52 @@ let result;
                 });
                
         });
+
+    //     try {
+    //         console.log("bookfile picture",req)
+   
+    //        console.log("bookfile picture1",req.file)
+    //        const file=req.files.profile_image;
+   
+    //        cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
+    //            if(err){
+    //                console.log(err);
+    //            }
+    //            else{
+    //                const bookfile=new book({
+    //                    _id:req.body._id,
+    //                    email:req.body.email,
+    //                    password:req.body.password,
+    //                    phone_no:req.body.phone_no,
+    //                    profile_image:result.url,
+    //                    name:req.body.name,
+    //                    dob:req.body.dob,
+    //                    })
+    //                    book.findByIdAndUpdate(bookfile._id,{$set: bookfile},{new:true},(error,data)=>{
+    //                                           if(error){
+    //                                             console.log(error);
+    //                                               return next (error)
+    //                                           }else{
+    //                                               res.status(200).json(data)
+    //                                               console.log("update success");
+    //                                           }
+    //                             })
+    //                    .catch(err=>{
+    //                        console.log("acsb")
+    //                        res.status(200).json({ msg: "credential already exist" });
+    //                        console.log(err);
+    //                    })
+                   
+                   
+    //            }
+    //            // console.log(result);
+    //        })
+           
+    //    } catch (err) {
+    //        res.status(200).json({ msg: "credential already exist" });
+    //        console.log("lk")
+    //        console.log(err);
+    //    }
 }
 
 

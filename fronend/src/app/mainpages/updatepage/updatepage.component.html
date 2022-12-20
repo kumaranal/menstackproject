@@ -18,13 +18,11 @@
                     <br>
                     <div class="form-group">
                         <label>Phone_no</label>
-                        <input type="text" class="form-control" formControlName="phone_no" required>
+                        <input type="number" class="form-control" formControlName="phone_no" required>
                     </div>
                     <br>
                     <div class="form-group">
                         <label>Profile_image</label>
-                        <!-- <input type="text" class="form-control" formControlName="profile_image" required>
-                         -->
                          <input type="file" class="form-control" (change)="getFile($event)" formControlName="profile_image" required>
                         
                     </div>

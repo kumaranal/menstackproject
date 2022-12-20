@@ -26,6 +26,7 @@ mongoose.Promise=global.Promise;
 const routerpath= require("./node_backend/routes/book.routes");
 const app=express();
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({
     extended:false
 }));
@@ -34,6 +35,19 @@ app.use(fileupload({
     useTempFiles:true
 }))
 app.use(cors());
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
+
+//     res.header(
+//         'Access-Control-Expose-Headers',
+//         'x-access-token, x-refresh-token'
+//     );
+
+//     next();
+// });
+
 app.use(express.static(path.join(__dirname,'dist/bookstore')));
 //app route setting, we make this /api so every site link should have /api
 app.use('/api',routerpath);

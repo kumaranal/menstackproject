@@ -10,13 +10,20 @@
                 </div>
                 <br>
                 <div class="form-group">
+                    <div>
                     <label >Email</label>
                     <input type="text" class="form-control" formControlName="email" required>
                 </div>
+                    <!-- <input type="email" name="email" ngModel email="true"> -->
+                    <span class="text-danger textcolore" *ngIf=" loginForm.hasError('required','email') && (saveformflag) ">Email is required</span>
+                </div>
                 <br>
                 <div class="form-group">
+                    <div>
                     <label >Password</label>
                     <input type="text" class="form-control" formControlName="password" required>
+                    </div>
+                    <span class="text-danger textcolore" *ngIf="loginForm.hasError('required','password') && (saveformflag) ">Password is required</span>
                 </div>
                 
             </form>

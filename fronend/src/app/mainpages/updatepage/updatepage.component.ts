@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/servicefile/loginservice.service';
 
@@ -12,7 +12,7 @@ export class UpdatepageComponent implements OnInit {
 
   getId: any;
   authtoken:any;
-  updateForm!: FormGroup ;
+  updateForm: FormGroup ;
   imagefile!: File;
 
   id:any;
@@ -45,9 +45,9 @@ export class UpdatepageComponent implements OnInit {
       })
     });
     this.updateForm=this.formBuilder.group({
-      email:[''],
-      phone_no:[''],
+      email:['',[Validators.email]],
       password:[''],
+      phone_no:['',[Validators.minLength(10)]],
       profile_image:[''],
       name:[''],
       dob:[''],
@@ -68,20 +68,22 @@ export class UpdatepageComponent implements OnInit {
     formData.append('email',this.updateForm.value.email);
     formData.append('password',this.updateForm.value.password);
     formData.append('phone_no',this.updateForm.value.phone_no);
+    // if(this.imagefile){
+      formData.append('profile_image',this.imagefile,this.imagefile.name);
+    // }
     formData.append('name',this.updateForm.value.name);
     formData.append('dob',this.updateForm.value.dob);
     formData.append('_id',this.id);
-    if(this.imagefile){
-      formData.append('profile_image',this.imagefile,this.imagefile.name);
-    }
 
     // const datareg={...this.regForm.value,profile_image:this.file};
     // console.log("last",{...this.regForm.value,profile_image:this.file})
     console.log("formData",formData);
-    this.crudApi.updateBook(this.id,formData).subscribe((res:any)=>{
+    this.crudApi.updateBook(formData).subscribe((res:any)=>{
       console.log("register data added successful");
       this.ngZone.run(()=>{
-        this.router.navigate(['firstpage']);
+        // this.router.navigate(['firstpage']);
+        this.router.navigateByUrl(`firstpage/myprofile`);
+
       }),(err:any)=>{
         console.log(err);
       }

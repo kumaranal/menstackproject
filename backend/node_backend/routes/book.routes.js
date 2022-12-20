@@ -21,7 +21,8 @@ routerpath.get('/',hookf.getfn);
 routerpath.get('/find-profile/:id',hookf.findfn);
 
 // update
-routerpath.put('/update-profile/:id',hookf.updatefn);
+// routerpath.put('/update-profile/:id',hookf.updatefn);
+routerpath.post('/update-profile',hookf.updatefn);
 
 //delete
 routerpath.delete('/delete-profile/:id',hookf.deletefn);

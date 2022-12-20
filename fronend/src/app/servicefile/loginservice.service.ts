@@ -46,10 +46,10 @@ export class LoginserviceService {
     )
   }
   //update bokk
-  updateBook(id:any,data:any):Observable<any>{
-    console.log("data update",data);
-    let API_URL=`${this.REST_API}/update-profile/${id}`;
-    return this.httpClient.put(API_URL,data,{headers:this.httpHeaders}).pipe(
+  updateBook(data:any):Observable<any>{
+    // console.log("data update",data);
+    let API_URL=`${this.REST_API}/update-profile`;
+    return this.httpClient.post(API_URL,data).pipe(
     catchError(this.handleEroor)
     )
   }

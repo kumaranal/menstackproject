@@ -23,7 +23,8 @@
                     <td >{{books.phone_no}}</td>
                     <td><img [src]="books.profile_image" height='100' width='100' /></td>
                     <td class="text-center">
-                        <button class="btn btn-primary"   (click)="edit()">edit</button>
+                        <button class="btn btn-primary"   (click)="edit()">edit profile</button>
+                        <br>
                         <button class="btn btn-primary"   (click)="delete()">delete</button>
 
                     </td>
@@ -32,3 +33,55 @@
         </table>
     </div>
 </div>
+
+
+<!-- <table>
+    <tr ng-repeat-start="let element in books">
+      <td>email</td>
+      <td>{{books.email}}</td>
+    </tr>
+    
+    <tr ng-repeat-end>
+      <td>name</td>
+      <td>{{books.name}}</td>
+    </tr>
+  </table> -->
+
+  <!-- <div *ngFor='let row of books'>
+    <ul>
+      <li *ngFor='let obj of row | keyvalue'>{{obj.key}}:{{key.value}} </li>
+     </ul>
+  </div> -->
+
+
+
+
+
+
+
+
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+
+
+    <!-- Name Column -->
+    <!-- <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> name </th>
+        <td mat-cell *matCellDef=books> {{books.name}} </td>   
+     </ng-container>
+  
+  
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> -->
+
+
+  <!-- <div ng-app="myApp" ng-controller="customersCtrl"> 
+
+    <table>
+      <tr ng-repeat="x in names">
+        <td>{{ x.Name }}</td>
+        <td>{{ x.Country }}</td>
+      </tr>
+    </table>
+    
+    </div>
+     -->

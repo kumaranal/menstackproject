@@ -1,5 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginserviceService } from 'src/app/servicefile/loginservice.service';
 import{ MatDatepickerModule} from '@angular/material/datepicker';
@@ -11,15 +11,16 @@ import{ MatDatepickerModule} from '@angular/material/datepicker';
 export class RegisterpageComponent implements OnInit {
   regForm: FormGroup ;
   imagefile!: File;
+  saveformflag :any= false;
 
   constructor(private formBuilder:FormBuilder,private router:Router,private ngZone:NgZone,private crudApi:LoginserviceService) {
   this.regForm=this.formBuilder.group({
-    email:[''],
-    password:[''],
-    phone_no:[''],
-    profile_image:[''],
-    name:[''],
-    dob:[''],
+    email:['',[Validators.required,Validators.email]],
+    password:['',[Validators.required]],
+    phone_no:['',[Validators.required,Validators.minLength(10)]],
+    profile_image:['',[Validators.required]],
+    name:['',[Validators.required]],
+    dob:['',[Validators.required]],
 
   })
 }
@@ -27,6 +28,9 @@ export class RegisterpageComponent implements OnInit {
   }
   onSubmit(){
     if(! this.regForm.valid){
+      this.saveformflag=true
+      alert("register data invalid");
+
       return;
     }
     const formData=new FormData();
