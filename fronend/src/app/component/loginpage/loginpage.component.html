@@ -21,11 +21,14 @@
                 <div class="form-group">
                     <div>
                     <label >Password</label>
-                    <input type="text" class="form-control" formControlName="password" required>
+                    <input  #x type="password" class="form-control" formControlName="password" required>
+                    <button (click)="x.type=x.type=='password'?'text':'password'">show</button>
+
+                     
                     </div>
                     <span class="text-danger textcolore" *ngIf="loginForm.hasError('required','password') && (saveformflag) ">Password is required</span>
                 </div>
-                
+
             </form>
             <br>
             <div>

@@ -59,5 +59,15 @@ export class LoginpageComponent implements OnInit {
       this.router.navigateByUrl(`register`);
     })
   }
-
+  // toggleShow()
+  // {
+  //     this.show = !this.show;
+  //     console.log(this.input); //undefined
+  //     if (this.show){
+  //         this.input.changeType("text");
+  //     }
+  //     else {
+  //         this.input.changeType("password");
+  //     }
+  // }
 }
